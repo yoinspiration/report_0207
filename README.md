@@ -1,13 +1,13 @@
 # 2月7日例会
 
 这段时间围绕「QEMU 自动测试」和「多组织共享硬件测试环境」主要完成了三件事：
-1. 在 AxVisor 仓库中完成 QEMU 自动测试脚本和配置改动，并提交上游 PR。
-2. 系统性完善了自动测试系统的部署文档，沉淀为可复用的操作手册。
-3. 为多组织共享同一套硬件测试环境设计并实现了 Runner 锁包装方案，并在 github-runners 仓库提交 PR。
+1. 在 AxVisor 仓库中完成 QEMU 自动测试脚本和配置改动，并提交上游 [PR #363](https://github.com/arceos-hypervisor/axvisor/pull/363)。
+2. 系统性完善了[自动测试系统部署文档](自动测试系统部署文档.md)，沉淀为可复用的操作手册。
+3. 为多组织共享同一套硬件测试环境设计并实现了 Runner 锁包装方案，并在 github-runners 仓库提交 [PR #2](https://github.com/arceos-hypervisor/github-runners/pull/2)。
 
 ## 一、在 QEMU 环境下复现已有的自动测试功能
 
-在 [axvisor](https://github.com/yoinspiration/axvisor/tree/dev/qemu-test-enhancement) 仓库的 `scripts` 目录下添加了 **AxVisor QEMU 测试环境的统一准备脚本** `setup_qemu.sh`，用于在运行 QEMU 测试前自动完成镜像下载、配置修改和 rootfs 准备（对应上游 PR [#363](https://github.com/arceos-hypervisor/axvisor/pull/363)）。
+在 [axvisor](https://github.com/yoinspiration/axvisor/tree/dev/qemu-test-enhancement) 仓库的 `scripts` 目录下添加了 **AxVisor QEMU 测试环境的统一准备脚本** `setup_qemu.sh`，用于在运行 QEMU 测试前自动完成镜像下载、配置修改和 rootfs 准备（对应上游 [PR #363](https://github.com/arceos-hypervisor/axvisor/pull/363)）。
 
 ### 1.1 功能概览
 
@@ -54,7 +54,7 @@ NimbOS 使用 `image_location=fs`，kernel 需放在 rootfs 内。脚本会依�
 
 任一种成功即可完成 kernel 注入。
 
-**当前状态**：三个 Guest（ArceOS、Linux、NimbOS）在本地和 CI 环境均已跑通，对应改动已通过上游 PR #363 提交 AxVisor。  
+**当前状态**：三个 Guest（ArceOS、Linux、NimbOS）在本地和 CI 环境均已跑通，对应改动已通过上游 [PR #363](https://github.com/arceos-hypervisor/axvisor/pull/363) 提交 AxVisor。  
 
 ---
 
@@ -74,7 +74,7 @@ NimbOS 使用 `image_location=fs`，kernel 需放在 rootfs 内。脚本会依�
 
 ---
 
-## 三、多组织共享测试环境（对应上游 PR [#2](https://github.com/arceos-hypervisor/github-runners/pull/2)）
+## 三、多组织共享测试环境（对应上游 [PR #2](https://github.com/arceos-hypervisor/github-runners/pull/2)）
 
 ### 3.1 问题项与状态
 
